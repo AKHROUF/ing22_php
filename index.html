@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post" >
+        NOM <input name="nom" placeholder="nom" ><br />
+        MOT DE PASSE <input type="password" name="pass" ><br />
+        EMAIL <input name="email" placeholder="email" ><br />
+        LANGAGES <input type="checkbox" name="lang[]" value="1" >PHP
+                 <input type="checkbox" name="lang[]" value="2" >JS/ES 
+                 <input type="checkbox" name="lang[]" value="3" >HTML<br/>
+        GENRE <input type="radio" name="genre" value="1" >HOMME 
+              <input type="radio" name="genre" value="2" >FEMME <br/>
+        MARIE(E) <input type="radio" name="marie" value="1" >OUI 
+                 <input type="radio" name="marie" value="2" >NON <br/>
+        WILAYA <select required name="wilaya">
+                    <option value="" selected >SELECTIONNER UNE WILAYA</option> 
+                    <option value="01">ADRAR</option><option value="2">CHLEF</option>
+                    <option value="3">LAGHOUAT</option><option value="4">OUM BOUAGHI</option>
+                    <option value="5">BATNA</option><option value="6">BEJAIA</option>
+                </select><br/>
+        <input type="submit" name="valider" value="VALIDER">
+    </form>
+</body>
+</html>
