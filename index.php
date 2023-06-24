@@ -1,10 +1,10 @@
 <?php
   #if ( $_SERVER['REQUEST_METHOD'] != "POST")
   if ( ! isset($_POST['valider'])) // empty
-     die("Vous devez passer par le formulaire");
-
-     foreach($_POST as $indice => $valeur)
-          ;
+     {
+       echo "<meta http-equiv='refresh' content='0;url=index.html'>";
+       die("Vous devez passer par le formulaire");
+     }
 
   $nom = $_POST["nom"] ?? "";
   $email = $_POST["email"] ?? "";
@@ -32,7 +32,22 @@
   echo "</b><br/>";
   echo "MARIE ? : <b>". ($marie == 1)?"OUI":"NON"   ."</b><br/>";
   
-  $tab = ["", "ADRAR", "CHLEF", "LAGHOUAT", "OUM BOUAGHI", "BATNA", "BEJAIA"];
-  $w = $tab[$wilaya];
+  require_once("params.php");
+  $w = WILAYAS[$wilaya];
   echo "WILAYA : <b>$w</b><br/>";
-  
+?>
+<form method="post" 
+      action="page2.php?pass=<?php echo $pass; ?>" >
+   <?php 
+      setcookie("email", $email); 
+
+      // dans php.ini modifier : session.auto_start=1
+      $_SESSION["genre"] = $genre;
+   ?>
+   <input name="nom" type="hidden" 
+          value="<?php echo $nom; ?>" >
+   AGE : <input type="number" name="age" >
+   <input type="submit" value="OK" >
+</form>
+
+<?php echo "....."; 

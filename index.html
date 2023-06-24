@@ -20,10 +20,15 @@
                  <input type="radio" name="marie" value="2" >NON <br/>
         WILAYA <select required name="wilaya">
                     <option value="" selected >SELECTIONNER UNE WILAYA</option> 
-                    <option value="01">ADRAR</option><option value="2">CHLEF</option>
-                    <option value="3">LAGHOUAT</option><option value="4">OUM BOUAGHI</option>
-                    <option value="5">BATNA</option><option value="6">BEJAIA</option>
-                </select><br/>
+                    <?php 
+                        require_once "params.php"; 
+                        foreach (WILAYAS as $i => $w) {
+                            if($i == 0) continue;
+                            echo "<option value=\"$i\">$w</option>";
+                            /* echo "<option value='" . $i . "'>" . $w . "</option>"; */
+                        }
+                    ?>                    
+                </select><br/><!-- ip du serveur BDD est 10.0.0.1 -->
         <input type="submit" name="valider" value="VALIDER">
     </form>
 </body>
